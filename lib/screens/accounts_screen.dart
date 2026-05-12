@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:navigation/bloc/navigation_bloc.dart';
+import 'package:navigation/navigator/app_navigator.dart';
 
 class AccountsScreen extends StatelessWidget {
   const AccountsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final navigator = AppNavigatorImpl(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Accounts'),
@@ -16,7 +17,7 @@ class AccountsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.account_circle, size: 80, color: Colors.deepPurple),
+            const Icon(Icons.account_circle, size: 80, color: Colors.blue),
             const SizedBox(height: 16),
             const Text(
               'Accounts Screen',
@@ -24,10 +25,15 @@ class AccountsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             ElevatedButton.icon(
-              onPressed: () =>
-                  context.read<NavigationBloc>().add(NavigateToHome()),
+              onPressed: () => navigator.pushHome(),
               icon: const Icon(Icons.home),
               label: const Text('Go to Home'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: () => navigator.pushProfile(),
+              icon: const Icon(Icons.person),
+              label: const Text('Go to Profile'),
             ),
           ],
         ),
