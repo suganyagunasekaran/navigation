@@ -2,6 +2,10 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:navigation/router/app_router.dart';
 
+extension NavigationHelpersExt on BuildContext {
+  AppNavigator get navigator => AppNavigatorImpl(this);
+}
+
 abstract class AppNavigator {
   void pushHome();
   void pushAccounts();

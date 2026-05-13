@@ -6,7 +6,7 @@ class AccountsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final navigator = AppNavigatorImpl(context);
+    //final navigator = AppNavigatorImpl(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -25,13 +25,13 @@ class AccountsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             ElevatedButton.icon(
-              onPressed: () => navigator.pushHome(),
+              onPressed: () => context.navigator.pushHome(),
               icon: const Icon(Icons.home),
               label: const Text('Go to Home'),
             ),
             const SizedBox(height: 16),
             ElevatedButton.icon(
-              onPressed: () => navigator.pushProfile(),
+              onPressed: () => context.navigator.pushProfile(),
               icon: const Icon(Icons.person),
               label: const Text('Go to Profile'),
             ),
